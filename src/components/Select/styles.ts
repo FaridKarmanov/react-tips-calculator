@@ -1,4 +1,4 @@
-import { Color } from "../ui/colors";
+import { Color } from "../UI/colors";
 
 export const CustomStyles = {
   control: () => ({

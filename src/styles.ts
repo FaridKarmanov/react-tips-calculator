@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Color } from "./components/ui/colors";
-import { Media } from "./components/ui/media";
+import { Color } from "./components/UI/colors";
+import { Media } from "./components/UI/media";
 import circles from "./assets/circles.svg";
 
 export const Wrapper = styled.div`
