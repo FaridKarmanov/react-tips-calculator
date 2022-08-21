@@ -24,8 +24,6 @@ export const CustomSelect = ({ tips, setTips }: IProps) => {
 
   return (
     <Select
-      isSearchable={false}
-      isMulti={false}
       options={options}
       onChange={handleTips}
       value={getValue()}

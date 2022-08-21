@@ -1,9 +1,7 @@
-import { StylesConfig } from "react-select";
 import { Color } from "../ui/colors";
 
-export const CustomStyles: StylesConfig<{}> = {
-  control: (styles) => ({
-    ...styles,
+export const CustomStyles = {
+  control: () => ({
     width: "100%",
     display: "flex",
     alignItems: "center",
@@ -14,8 +12,7 @@ export const CustomStyles: StylesConfig<{}> = {
     border: "none ",
   }),
 
-  indicatorSeparator: (styles) => ({
-    ...styles,
+  indicatorSeparator: () => ({
     width: "0px",
   }),
 };
