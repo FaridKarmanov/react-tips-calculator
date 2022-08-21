@@ -5,7 +5,7 @@ export interface IButton {
 
 export interface IInput {
   value: string;
-  onChange: React.ChangeEventHandler<HTMLInputElement> | undefined;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
   type: string;
   placeholder: string;
 }

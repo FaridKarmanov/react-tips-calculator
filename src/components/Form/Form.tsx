@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useInput } from "../../hooks/useInput";
-import { ISelect } from "../../types";
 import { Button } from "../Button/Button";
 import { Input } from "../Input/Input";
 import { CustomSelect, options } from "../Select/CustomSelect";
@@ -10,30 +9,14 @@ export const Form = () => {
   const bill = useInput();
   const persons = useInput();
 
+  const [tips, setTips] = useState<number>(options[0].value);
   const [valueButton, setButtonValue] = useState<boolean>(true);
-  const [currentValue, setCurrentValue] = useState<number>(10);
   const [valueForm, setValueForm] = useState<number>(0);
 
-  const getTipsValue = () => {
-    return currentValue
-      ? options.find((tips: ISelect) => {
-          return tips.value === currentValue;
-        })
-      : "";
-  };
-
-  const handleTips = (tips: any): void => {
-    setCurrentValue(tips.value);
-  };
-
   const handleSubmit = (event: React.SyntheticEvent<HTMLFormElement>): void => {
-    const totalValue = (
-      ((+bill.value / +persons.value) * (100 + currentValue)) /
-      100
-    ).toFixed(2);
-
-    setValueForm(+totalValue);
     event.preventDefault();
+
+    setValueForm(((+bill.value / +persons.value) * (100 + tips)) / 100);
   };
 
   useEffect((): void => {
@@ -50,8 +33,8 @@ export const Form = () => {
       <SubTitle>Let’s go calculate your tips</SubTitle>
       <Input {...bill} type="number" placeholder="Enter the bill" />
       <Input {...persons} type="number" placeholder="Enter persons" />
-      <CustomSelect onChange={handleTips} value={getTipsValue()} />
-      <Total>Total: {valueForm} $</Total>
+      <CustomSelect tips={tips} setTips={setTips} />
+      <Total>Total: {valueForm.toFixed(2)} $</Total>
       <Button type="submit" disabled={valueButton}></Button>
     </StyledForm>
   );

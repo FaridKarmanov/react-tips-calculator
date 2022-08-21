@@ -9,17 +9,27 @@ export const options: ISelect[] = [
 ];
 
 interface IProps {
-  onChange: any;
-  value: string | ISelect | undefined;
+  tips: number;
+  setTips: (value: number) => void;
 }
 
-export const CustomSelect = ({ onChange, value }: IProps) => {
+export const CustomSelect = ({ tips, setTips }: IProps) => {
+  const getValue = () => {
+    return tips ? options.find((option) => option.value === tips) : options[0];
+  };
+
+  const handleTips = (option: SingleValue<ISelect>): void => {
+    if (option) setTips(option.value);
+  };
+
   return (
     <Select
+      isSearchable={false}
+      isMulti={false}
       options={options}
-      onChange={onChange}
+      onChange={handleTips}
+      value={getValue()}
       styles={CustomStyles}
-      value={value}
     />
   );
 };
