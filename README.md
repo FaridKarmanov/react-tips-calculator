@@ -1,1 +1,1 @@
-https://github.com/FaridKarmanov/react-tips-calculator
+https://faridkarmanov.github.io/react-tips-calculator/
