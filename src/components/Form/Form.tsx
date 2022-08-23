@@ -10,7 +10,7 @@ export const Form = () => {
   const persons = useInput();
 
   const [tips, setTips] = useState<number>(options[0].value);
-  const [valueButton, setButtonValue] = useState<boolean>(true);
+  const [valueButton, setButtonValue] = useState<boolean>(false);
   const [valueForm, setValueForm] = useState<number>(0);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
@@ -21,9 +21,9 @@ export const Form = () => {
 
   useEffect((): void => {
     if (bill.value && persons.value) {
-      setButtonValue(true);
-    } else {
       setButtonValue(false);
+    } else {
+      setButtonValue(true);
     }
   }, [bill.value, persons.value]);
 
