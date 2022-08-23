@@ -1,3 +1,4 @@
+import React from "react";
 import Select, { SingleValue } from "react-select";
 import { ISelect } from "../../types";
 import { CustomStyles } from "./styles";
@@ -24,6 +25,7 @@ export const CustomSelect = ({ tips, setTips }: IProps) => {
 
   return (
     <Select
+      isSearchable={false}
       options={options}
       onChange={handleTips}
       value={getValue()}

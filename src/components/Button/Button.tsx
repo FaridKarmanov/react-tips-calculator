@@ -1,9 +1,14 @@
+import React from "react";
 import { StyledButton } from "./styles";
-import { IButton } from "../../types";
 
-export const Button = ({ type, disabled }: IButton) => {
+export interface IButton {
+  type: "button" | "submit" | "reset";
+  isDisabled: boolean;
+}
+
+export const Button = ({ type, isDisabled }: IButton) => {
   return (
-    <StyledButton type={type} disabled={disabled}>
+    <StyledButton type={type} disabled={isDisabled}>
       Ohhhoooo 🍻
     </StyledButton>
   );

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import { useInput } from "../../hooks/useInput";
 import { Button } from "../Button/Button";
 import { Input } from "../Input/Input";
@@ -13,16 +13,16 @@ export const Form = () => {
   const [valueButton, setButtonValue] = useState<boolean>(true);
   const [valueForm, setValueForm] = useState<number>(0);
 
-  const handleSubmit = (event: React.SyntheticEvent<HTMLFormElement>): void => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
 
     setValueForm(((+bill.value / +persons.value) * (100 + tips)) / 100);
   };
 
   useEffect((): void => {
-    if (bill.value === "" || persons.value === "") {
+    if (bill.value && persons.value) {
       setButtonValue(true);
-    } else if (bill.value !== "" && persons.value !== "") {
+    } else {
       setButtonValue(false);
     }
   }, [bill.value, persons.value]);
@@ -35,7 +35,7 @@ export const Form = () => {
       <Input {...persons} type="number" placeholder="Enter persons" />
       <CustomSelect tips={tips} setTips={setTips} />
       <Total>Total: {valueForm.toFixed(2)} $</Total>
-      <Button type="submit" disabled={valueButton}></Button>
+      <Button type="submit" isDisabled={valueButton}></Button>
     </StyledForm>
   );
 };

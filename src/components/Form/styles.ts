@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Color } from "../UI/colors";
-import { Media } from "../UI/media";
+import { Color } from "../../ui/colors";
+import { Media } from "../../ui/media";
 
 const StyledForm = styled.form`
   margin: auto;

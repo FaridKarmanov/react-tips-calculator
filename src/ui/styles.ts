@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { Color } from "./components/UI/colors";
-import { Media } from "./components/UI/media";
-import circles from "./assets/circles.svg";
+import { Color } from "./colors";
+import { Media } from "./media";
+import circles from "../assets/circles.svg";
 
 export const Wrapper = styled.div`
   background: no-repeat top left url(${circles});
